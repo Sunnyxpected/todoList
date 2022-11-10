@@ -6,21 +6,15 @@ export default function ToDo() {
   const [todoList, setTodoList] = useState([]);
   const [nextTodoId, setNextTodoId] = useState(1);
 
-  const addTodoToList = (todoText) => {
-    if (!todoText) {
-      return;
-    }
-    setTodoList([
-      ...todoList,
-      { id: nextTodoId, text: todoText, isCompleted: false },
-    ]);
-    setNextTodoId(nextTodoId + 1);
-  };
-
   return (
     <>
       <div className="todoContainer">
-        <TodoForm handleSubmit={addTodoToList} />
+        <TodoForm
+          todoList={todoList}
+          setTodoList={setTodoList}
+          nextTodoId={nextTodoId}
+          setNextTodoId={setNextTodoId}
+        />
         <TodoList
           todoList={todoList}
           setTodoList={setTodoList}

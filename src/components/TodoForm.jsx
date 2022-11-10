@@ -1,11 +1,18 @@
 import { useState } from "react";
 
-export default function TodoForm(props) {
+const TodoForm = (todoList, setTodoList, nextTodoId, setNextTodoId) => {
   const [todo, setTodo] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleSubmit(todo);
+    if (!todo) {
+      return;
+    }
+    setTodoList([
+      ...todoList,
+      { id: nextTodoId, text: todo, isCompleted: false },
+    ]);
+    setNextTodoId(nextTodoId + 1);
     setTodo("");
   };
 
@@ -26,4 +33,6 @@ export default function TodoForm(props) {
       </form>
     </>
   );
-}
+};
+
+export default TodoForm;
