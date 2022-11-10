@@ -16,16 +16,11 @@ body {
   text-align: center;
 }
 
-span[id^=entry] {
-  color: white;
-  font-size: 1.5rem;
-}
-
 #root {
   width: 100%;
 }
 
-.todoContainer {
+.container {
   width: 100%;
 }
 
@@ -66,85 +61,71 @@ button {
 
 }
 
-.actionButton {
-  font-size: 10px;
-}
-
 input {
-  font-size: 16px;
-  font-size: Max(16px, 1rem);
-  font-family: inherit;
-  padding: 0.25em 0.5em;
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 4px;
-  transition: all 0.5s ease-in-out;
-  outline: none;
-
-  &:focus {
-    background-color: white;
-    border-color: transparent;
-  }
-}
-
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-
-  $borderColor: white;
-  $borderThickness: 0.1rem;
-  $borderRadius: 4px;
-
-  tr th,
-  tr td {
-    border-right: $borderThickness solid $borderColor;
-    border-bottom: $borderThickness solid $borderColor;
-    padding: 5px;
+    font-size: 16px;
+    font-size: Max(16px, 1rem);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+  
+    &:focus {
+      background-color: white;
+      border-color: transparent;
+    }
   }
 
-  tr th:first-child,
-  tr td:first-child {
-    border-left: $borderThickness solid $borderColor;
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  
+    $borderColor: white;
+    $borderThickness: 0.1rem;
+    $borderRadius: 4px;
+  
+    tr th,
+    tr td {
+      border-right: $borderThickness solid $borderColor;
+      border-bottom: $borderThickness solid $borderColor;
+      padding: 5px;
+    }
+  
+    tr th:first-child,
+    tr td:first-child {
+      border-left: $borderThickness solid $borderColor;
+    }
+  
+    tr th:first-child,
+    tr td:first-child {
+      border-left: $borderThickness solid $borderColor;
+    }
+  
+    tr th {
+      text-align: left;
+      border-top: solid $borderThickness $borderColor;
+    }
+  
+    // top-left border-radius
+    tr:first-child th:first-child {
+      border-top-left-radius: $borderRadius;
+    }
+  
+    //top-right
+    tr:first-child th:last-child {
+      border-top-right-radius: $borderRadius;
+    }
+  
+    // bottom-left
+    tr:last-child td:first-child {
+      border-bottom-left-radius: $borderRadius;
+    }
+  
+    // bottom-right
+    tr:last-child td:last-child {
+      border-bottom-right-radius: $borderRadius;
+    }
   }
-
-  tr th:first-child,
-  tr td:first-child {
-    border-left: $borderThickness solid $borderColor;
-  }
-
-  tr th {
-    text-align: left;
-    border-top: solid $borderThickness $borderColor;
-  }
-
-  // top-left border-radius
-  tr:first-child th:first-child {
-    border-top-left-radius: $borderRadius;
-  }
-
-  //top-right
-  tr:first-child th:last-child {
-    border-top-right-radius: $borderRadius;
-  }
-
-  // bottom-left
-  tr:last-child td:first-child {
-    border-bottom-left-radius: $borderRadius;
-  }
-
-  // bottom-right
-  tr:last-child td:last-child {
-    border-bottom-right-radius: $borderRadius;
-  }
-}
-
-.todoInput {}
-
-
-
-.completed {
-  text-decoration: line-through;
-  color: rgb(94, 14, 14);
-  font-size: 1.5rem;
-}
