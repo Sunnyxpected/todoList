@@ -18,12 +18,17 @@ const EntryTable = ({ entryList, setEntryList, setNextEntryId }) => {
 
   const handleSetCompletedSubmit = (event, entry) => {
     event.preventDefault();
-    entryList[entryList.indexOf(entry)].isCompleted =
-      !entryList[entryList.indexOf(entry)].isCompleted;
+    const isCompleted = entryList[entryList.indexOf(entry)].isCompleted;
+    entryList[entryList.indexOf(entry)].isCompleted = !isCompleted;
     setEntryList(entryList);
-    document
-      .getElementById("entry" + entry.id)
-      .parentElement.classList.add("completed");
+    const entryElement = document.getElementById(
+      "entry" + entry.id
+    ).parentElement;
+    if (!isCompleted) {
+      entryElement.classList.add("completed");
+    } else {
+      entryElement.classList.remove("completed");
+    }
   };
 
   return (
